@@ -2,16 +2,14 @@
 
 <div class="edit">
 <form method="post" action="/transactions/<%= @transaction.id %>">
-  <br>
-  <br>
+
   <label for='trans-date'><strong>Date:</strong></label>
   <input
   id='trans-date'
   value='<%= @transaction.trans_date %>'
   type='date'
   name='trans_date'/>
-<br>
-<br>
+
   <label for="merchant-select">Select Merchant:</label>
   <select name="merchant_id" id="merchant-select" selected="<%= @transaction.merchant_id  %>">
     <% for merchant in @merchants  %>
@@ -33,21 +31,15 @@
       <% end %>
     <% end %>
   </select>
-  <br>
-  <br>
+
   <label for='amount'><strong>Amount:</strong></label>
   <input
   id='amount'
   value ='<%= @transaction.amount %>'
   type = 'number'
   name = 'amount'/>
-  <br>
-  <br>
-  <br>
+
   <input class="mybutton" type='submit' role="button" value='Update Transaction'/>
-  <br>
-  <br>
-  <br>
 
 </form>
 
