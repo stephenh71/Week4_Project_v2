@@ -5,38 +5,38 @@ require_relative( '../models/tag.rb' )
 also_reload( '../models/*' )
 
 get '/tags' do
-  @merchants = Merchant.all()
-  erb(:"merchants/index")
+  @tags = Tag.all()
+  erb(:"tags/index")
 end
 
-get '/merchants/new' do
-  erb(:"merchants/new")
+get '/tags/new' do
+  erb(:"tags/new")
 end
 
-get '/merchants/:id' do
-  @merchant = Merchant.find(params['id'])
-  erb ( :"merchants/show" )
+get '/tags/:id' do
+  @tag = Tag.find(params['id'])
+  erb ( :"tags/show" )
 end
 
-get '/merchants/:id/edit' do
-    @merchant = Merchant.find(params['id'])
-    erb(:"merchants/edit")
+get '/tags/:id/edit' do
+    @tag = Tag.find(params['id'])
+    erb(:"tags/edit")
 end
 
-post '/merchants/:id/delete' do
-  merchant = Merchant.find(params['id'])
-  merchant.delete()
-  redirect to "/merchants"
+post '/tags/:id/delete' do
+  tag = Tag.find(params['id'])
+  tag.delete()
+  redirect to "/tags"
 end
 
-post '/merchants/:id' do
-  merchant = Merchant.new(params)
-  merchant.update()
-  redirect to "/merchants"
+post '/tags/:id' do
+  tag = Tag.new(params)
+  tag.update()
+  redirect to "/tags"
 end
 
-post '/merchants' do
-  @merchant = Merchant.new(params)
-  @merchant.save()
-  erb (:"merchants/create")
+post '/tags' do
+  @tag = Tag.new(params)
+  @tag.save()
+  erb (:"tags/create")
 end

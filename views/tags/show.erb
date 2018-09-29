@@ -1,0 +1,19 @@
+<h1>Tag Details  </h1>
+
+<div class="add">
+  <p><strong> Title: </strong><%= @tag.title %></p>
+  <p><strong> Budget: </strong><%= @tag.budget %></p>
+
+  <form method='get'
+  action='/tags/<%= @tag.id %>/edit'>
+
+    <input class="mybutton" type='submit' value='Edit Tag'/>
+
+  </form>
+
+<form method='post' action='/tags/<%= @tag.id %>/delete'>
+
+  <input class="mybutton" type='submit'role="button" value='Delete Tag'/>
+
+</form>
+  </div>

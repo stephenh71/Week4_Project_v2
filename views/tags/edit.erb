@@ -1,0 +1,24 @@
+<h1>Edit Tag</h1>
+
+<div class="edit">
+<form method="post" action="/tags/<%= @tag.id %>">
+
+  <label for='tag-title'><strong>Title:</strong></label>
+  <input
+  id='tag-title'
+  value='<%= @tag.title %>'
+  type='text'
+  name='title'/>
+
+  <label
+  for='budget'><strong>Budget:</strong></label>
+  <input
+  id='budget'
+  value='<%= @tag.budget %>'
+  type='number'
+  name='budget'/>
+
+  <input class="mybutton" type='submit' role="button" value='Update Tag'/>
+
+
+  </div>
