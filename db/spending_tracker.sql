@@ -15,7 +15,7 @@ CREATE TABLE tags(
 
 CREATE TABLE transactions(
   id serial4 PRIMARY KEY,
-  trans_date DATE NOT NULL DEFAULT CURRENT_DATE,
+  trans_date DATE,
   merchant_id INT REFERENCES
   merchants(id) ON DELETE CASCADE,
   tag_id INT REFERENCES tags(id) ON DELETE CASCADE,

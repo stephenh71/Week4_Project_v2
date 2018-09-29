@@ -5,6 +5,7 @@ require_relative( '../models/tag.rb' )
 also_reload( '../models/*' )
 
 get '/tags' do
+  @total_budget = Tag.total_budget()
   @tags = Tag.all()
   erb(:"tags/index")
 end
