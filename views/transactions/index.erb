@@ -1,5 +1,7 @@
 <h1>All Transactions</h1>
 
+<p> Total of all transactions <%= @total_spend %>
+
 <% for transaction in @transactions %>
 <p>Date: <%= transaction.trans_date() %></p>
 <p>Merchant: <%= transaction.merchant.name() %></p>

@@ -55,7 +55,7 @@ class Transaction
   end
 
   def self.all()
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions ORDER BY trans_date DESC"
     results = SqlRunner.run(sql)
     return results.map {|result|Transaction.new(result)}
   end
@@ -70,6 +70,12 @@ class Transaction
     values = [id]
     results = SqlRunner.run(sql, values)
     return Transaction.new(results[0])
+  end
+
+  def self.total_spend()
+    sql = "SELECT SUM (amount) from transactions"
+    results = SqlRunner.run(sql)
+    return results[0].values[0].to_i
   end
 
 end
