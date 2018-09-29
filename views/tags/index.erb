@@ -1,0 +1,12 @@
+<h1>All Tags</h1>
+
+<% for tag in @tags %>
+<p>Title: <%= tag.title() %></p>
+<p>Budget: <%= tag.budget() %></p>
+
+      <a class="mybutton" href="/tags/<%= tag.id %>" role="button" >View Tag</a>
+
+
+
+
+    <% end%>

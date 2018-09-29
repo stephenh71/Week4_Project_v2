@@ -1,0 +1,11 @@
+<h1>All Merchants</h1>
+
+<% for merchant in @merchants %>
+<p>Name: <%= merchant.name() %></p>
+
+      <a class="mybutton" href="/merchants/<%= merchant.id %>" role="button" >View Merchant</a>
+
+
+
+
+    <% end%>

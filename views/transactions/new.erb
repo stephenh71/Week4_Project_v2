@@ -1,0 +1,28 @@
+<form method="post" action="/transactions">
+
+
+ <label for="trans-date"> Date :</label>
+ <input id="first-name" type="date" name="trans_date"/>
+
+ <label for="merchant-select">Select a merchant:
+ <select id="merchant-select" name="merchant_id">
+   <% for merchant in @merchants %>
+   <option value= "<%= merchant.id %>" > <%= merchant.name%> </option>
+    <% end %>
+ </select>
+ </label>
+
+ <label for="tag-select">Select a tag:
+ <select id="tag-select" name="tag_id">
+   <% for tag in @tags %>
+   <option value= "<%= tag.id %>" > <%= tag.title%> </option>
+    <% end %>
+ </select>
+ </label>
+
+ <label for="amount">Amount:</label>
+ <input id="amount" type="number" name="amount"/>
+
+<input type="submit" value="Add Transaction"/>
+
+</form>

@@ -1,0 +1,14 @@
+<h1>All Transactions</h1>
+
+<% for transaction in @transactions %>
+<p>Date: <%= transaction.trans_date() %></p>
+<p>Merchant: <%= transaction.merchant.name() %></p>
+<p>Tag: <%= transaction.tag.title %></p>
+<p>Amount: <%= transaction.amount() %></p>
+
+      <a class="mybutton" href="/transactions/<%= transaction.id %>" role="button" >View Transaction</a>
+
+
+
+
+    <% end%>

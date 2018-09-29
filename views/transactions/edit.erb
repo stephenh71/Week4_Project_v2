@@ -1,0 +1,54 @@
+<h1>Edit Transaction</h1>
+
+<div class="edit">
+<form method="post" action="/transactions/<%= @transaction.id %>">
+  <br>
+  <br>
+  <label for='trans-date'><strong>Date:</strong></label>
+  <input
+  id='trans-date'
+  value='<%= @transaction.trans_date %>'
+  type='date'
+  name='trans_date'/>
+<br>
+<br>
+  <label for="merchant-select">Select Merchant:</label>
+  <select name="merchant_id" id="merchant-select" selected="<%= @transaction.merchant_id  %>">
+    <% for merchant in @merchants  %>
+      <% if merchant.id == @transaction.merchant_id %>
+        <option value=<%= merchant.id %> selected><%= merchant.name.capitalize %></option>
+      <% else %>
+        <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
+      <% end %>
+    <% end %>
+  </select
+
+  <label for="tag-select">Select Tag:</label>
+  <select name="tag_id" id="tag-select" selected="<%= @transaction.tag_id  %>">
+    <% for tag in @tags %>
+      <% if tag.id == @transaction.tag_id %>
+        <option value=<%= tag.id %> selected><%= tag.title.capitalize %></option>
+      <% else %>
+        <option value=<%= tag.id %>><%= tag.title.capitalize %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <br>
+  <br>
+  <label for='amount'><strong>Amount:</strong></label>
+  <input
+  id='amount'
+  value ='<%= @transaction.amount %>'
+  type = 'number'
+  name = 'amount'/>
+  <br>
+  <br>
+  <br>
+  <input class="mybutton" type='submit' role="button" value='Update Transaction'/>
+  <br>
+  <br>
+  <br>
+
+</form>
+
+</div>
