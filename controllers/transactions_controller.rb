@@ -13,6 +13,14 @@ get '/transactions' do
   erb(:"transactions/index")
 end
 
+get '/transactions/month' do
+  @month_name = Date::MONTHNAMES[Date.today.month]
+  @month_spend = Transaction.current_month_spend()
+  @total_budget = Tag.total_budget()
+  @month_transactions = Transaction.current_month()
+  erb(:"transactions/month")
+end
+
 get '/transactions/new' do
   @merchants = Merchant.all()
   @tags = Tag.all()
@@ -32,7 +40,11 @@ get '/transactions/:id/edit' do
 end
 
 post '/transactions' do
+  @total_spend = Transaction.total_spend()
+  @total_budget = Tag.total_budget()
   @transaction = Transaction.new(params)
+  @revised_spend = @total_spend + @transaction.amount
+  @now_remaining = @total_budget - @revised_spend
   @transaction.save()
   erb (:"transactions/create")
 end

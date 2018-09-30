@@ -61,5 +61,12 @@ class Tag
     return results[0].values[0].to_i
   end
 
+  # def self.tag_budget()
+  #   sql = "SELECT SUM (budget) from tags WHERE title = $1"
+  #   values = [@title]
+  #   results = SqlRunner.run(sql)
+  #   return results[0].values[0].to_i
+  # end
+
 
 end

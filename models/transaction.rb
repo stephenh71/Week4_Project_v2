@@ -78,4 +78,22 @@ class Transaction
     return results[0].values[0].to_i
   end
 
+  def month
+    @month_name = Date::MONTHNAMES[Date.today.month]
+    @month = Date::MONTH[Date.today.month]
+  end
+
+  def self.current_month()
+    sql = "SELECT * FROM transactions WHERE date_part('month',trans_date) = date_part('month',CURRENT_DATE) AND date_part('year',trans_date) = date_part('year',CURRENT_DATE) ORDER BY trans_date DESC"
+    results = SqlRunner.run(sql)
+    return results.map {|result|Transaction.new(result)}
+  end
+
+def self.current_month_spend()
+  sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = date_part('month',CURRENT_DATE) AND date_part('year',trans_date) = date_part('year',CURRENT_DATE)"
+  results = SqlRunner.run(sql)
+  return results[0].values[0].to_i
+end
+
+
 end
