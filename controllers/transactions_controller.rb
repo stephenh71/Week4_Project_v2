@@ -14,7 +14,7 @@ get '/transactions' do
 end
 
 get '/transactions/month' do
-  @month_name = Date::MONTHNAMES[Date.today.month]
+  @current_month_name = Date::MONTHNAMES[Date.today.month]
   @month_spend = Transaction.current_month_spend()
   @total_budget = Tag.total_budget()
   @month_transactions = Transaction.current_month()

@@ -1,9 +1,8 @@
-<h1>Transactions for<%=@month_name%></h1>
+<h1>Transactions for <%=@current_month_name%></h1>
 
 <p>Month Spend £<%= @month_spend %></p>
 
 <p> Month Budget £<%= @total_budget %></p>
-
 
 <% for transaction in @month_transactions %>
 <p>Date: <%= transaction.trans_date %></p>

@@ -79,7 +79,6 @@ class Transaction
   end
 
   def month
-    @month_name = Date::MONTHNAMES[Date.today.month]
     @month = Date::MONTH[Date.today.month]
   end
 

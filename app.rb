@@ -5,8 +5,8 @@ require_relative('controllers/tags_controller')
 require_relative('controllers/transactions_controller')
 
 get '/' do
-  @total_spend = Transaction.total_spend()
+  @month_spend = Transaction.current_month_spend()
   @total_budget = Tag.total_budget()
-  @remaining = @total_budget - @total_spend
+  @remaining = @total_budget - @month_spend
   erb( :index )
 end
