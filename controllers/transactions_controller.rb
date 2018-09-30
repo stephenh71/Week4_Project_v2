@@ -6,19 +6,29 @@ require_relative( '../models/tag.rb' )
 require_relative( '../models/transaction.rb' )
 also_reload( '../models/*' )
 
+get '/transactions/current_month' do
+  @current_month_name = Date::MONTHNAMES[Date.today.month]
+  @month_spend = Transaction.current_month_spend()
+  @total_budget = Tag.total_budget()
+  @month_transactions = Transaction.current_month()
+  @transactions = Transaction.all()
+  erb(:"transactions/current_month")
+end
+
+get '/transactions/selected_month' do
+  @months =["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  @month_spend = Transaction.selected_month_spend(@selected_month)
+  @total_budget = Tag.total_budget()
+  @month_transactions = Transaction.selected_month(@selected_month)
+  @transactions = Transaction.all()
+  erb(:"transactions/selected_month")
+end
+
 get '/transactions' do
   @total_spend = Transaction.total_spend()
   @total_budget = Tag.total_budget()
   @transactions = Transaction.all()
   erb(:"transactions/index")
-end
-
-get '/transactions/month' do
-  @current_month_name = Date::MONTHNAMES[Date.today.month]
-  @month_spend = Transaction.current_month_spend()
-  @total_budget = Tag.total_budget()
-  @month_transactions = Transaction.current_month()
-  erb(:"transactions/month")
 end
 
 get '/transactions/new' do

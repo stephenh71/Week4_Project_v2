@@ -1,0 +1,33 @@
+
+
+<form method="get" action="/transactions/selected_month">
+
+<select id="month-select" type="number" name="@selected_month"/>
+
+  <% for month in @months %>
+  <option value= "<%= @months.index(month)+1 %>" >  <%=month%> </option>
+   <% end %>
+</select>
+</label>
+
+<input type="submit" value="Select Month"/>
+
+</form>
+
+<h1>Transactions for <%=month%>
+
+<%=@current_month_name%></h1>
+
+<p>Month Spend £<%= @month_spend %></p>
+
+<p> Month Budget £<%= @total_budget %></p>
+
+<% for transaction in @month_transactions %>
+<p>Date: <%= transaction.trans_date %></p>
+<p>Merchant: <%= transaction.merchant.name() %></p>
+<p>Tag: <%= transaction.tag.title %></p>
+<p>Amount: £<%= transaction.amount() %></p>
+
+      <a  href="/transactions/<%= transaction.id %>" role="button" >View Transaction</a>
+
+<% end%>

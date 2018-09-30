@@ -39,7 +39,6 @@ tag3 = Tag.new({
   "budget" => 500
 })
 
-
 tag1.save()
 tag2.save()
 tag3.save()
