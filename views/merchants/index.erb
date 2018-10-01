@@ -1,8 +1,21 @@
-<h1>All Merchants</h1>
+<h1>Merchants</h1>
 
-<% for merchant in @merchants %>
-<p>Name: <%= merchant.name() %></p>
+<a class="new_button" href="/merchants/new" role="button" >New</a>
 
-      <a class="mybutton" href="/merchants/<%= merchant.id %>" role="button" >View Merchant</a>
+<br>
+<table class = "small_table" >
+  <tr>
+    <th>Name</th>
+  </tr>
+  <tr>
 
-    <% end%>
+
+  <% for merchant in @merchants %>
+  <td><p><a href="/merchants/<%= merchant.id %>"><%= merchant.name.capitalize() %></a></p></td>
+
+  <td><form method='get' action='/merchants/<%= merchant.id %>/edit'> <input class="edit_button" type='submit' value='Edit'/></form></td>
+
+  <td><form method='post' action='/merchants/<%= merchant.id %>/delete'> <input class="delete_button" type='submit'role="button" value='Delete'/></form></td>
+
+  </tr>
+  <% end%>

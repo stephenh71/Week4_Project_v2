@@ -1,18 +1,32 @@
-<h1>Merchant Details  </h1>
+<h1><%= @merchant.name.capitalize %> </h1>
 
-<div class="add">
-  <p><strong> Name: </strong><%= @merchant.name %></p>
+<table class = "transaction_table" >
+<tr>
+  <th>Date</th>
+  <th>Merchant</th>
+  <th>Tag</th>
+  <th>Amount</th>
+  <th>View</th>
+</tr>
+  <tr>
+    <% @total_transaction_amount = 0 %>
+    <% for transaction in @transactions %>
+      <% if transaction.merchant.name == @merchant.name %>
+        <td><p><%= transaction.trans_date %></p></td>
+        <td><p><%= transaction.merchant.name.capitalize() %></p></td>
+        <td><p><%= transaction.tag.title.capitalize() %></p></td>
+        <td><p>£ <%= transaction.amount() %></p></td>
+        <% @total_transaction_amount += transaction.amount() %>
 
-  <form method='get'
-  action='/merchants/<%= @merchant.id %>/edit'>
 
-    <input class="mybutton" type='submit' value='Edit Merchant'/>
+        <td>  <a class="view_button" href="/transactions/<%= transaction.id %>" role="view_button" >View</a></td>
 
-  </form>
+        <td><form method='get' action='/transactions/<%= @transaction.id %>/edit'><input class="mybutton" type='submit' value='Edit'/></form></td>
 
-<form method='post' action='/merchants/<%= @merchant.id %>/delete'>
+        <td><form method='post' action='/transactions/<%= @transaction.id %>/delete'><input class="delete_button" type='submit'role="button" value='Delete'/></form></td>
 
-  <input class="mybutton" type='submit'role="button" value='Delete Merchant'/>
+  </tr>
+      <% end%>
+    <% end%>
 
-</form>
-  </div>
+<p>Total spend (all months) : £<%= @total_transaction_amount%></p>

@@ -1,19 +1,46 @@
-<h1>Tag Details  </h1>
+<h1><%= @tag.title.capitalize %> - month budget £<%= @tag.budget %></h1>
 
-<div class="add">
-  <p><strong> Title: </strong><%= @tag.title %></p>
-  <p><strong> Budget: £</strong><%= @tag.budget %></p>
+<table class = "transaction_table" >
+<tr>
+  <th>Date</th>
+  <th>Merchant</th>
+  <th>Tag</th>
+  <th>Amount</th>
+  <th>View</th>
+</tr>
+  <tr>
+    <% @total_transaction_amount = 0 %>
+    <% for transaction in @transactions %>
+      <% if transaction.tag.title == @tag.title %>
+        <td><p><%= transaction.trans_date %></p></td>
+        <td><p><%= transaction.merchant.name.capitalize() %></p></td>
+        <td><p><%= transaction.tag.title.capitalize() %></p></td>
+        <td><p>£ <%= transaction.amount() %></p></td>
+        <% @total_transaction_amount += transaction.amount() %>
 
-  <form method='get'
-  action='/tags/<%= @tag.id %>/edit'>
 
-    <input class="mybutton" type='submit' value='Edit Tag'/>
+        <td>  <a class="view_button" href="/transactions/<%= transaction.id %>" role="view_button" >View</a></td>
 
-  </form>
+        <td><form method='get' action='/transactions/<%= @transaction.id %>/edit'><input class="mybutton" type='submit' value='Edit'/></form></td>
 
-<form method='post' action='/tags/<%= @tag.id %>/delete'>
+        <td><form method='post' action='/transactions/<%= @transaction.id %>/delete'><input class="delete_button" type='submit'role="button" value='Delete'/></form></td>
 
-  <input class="mybutton" type='submit'role="button" value='Delete Tag'/>
+  </tr>
+      <% end%>
+    <% end%>
+
+<p>Total spend (all months) : £<%= @total_transaction_amount%></p>
+
+<form method="get" action="/transactions/selected_month">
+
+<select id="month-select" type="number" name="@selected_month"/>
+
+  <% for month in @months %>
+  <option value= "<%= @months.index(month)+1 %>" >  <%=month%> </option>
+   <% end %>
+</select>
+</label>
+
+<input type="submit" value="Select Month"/>
 
 </form>
-  </div>

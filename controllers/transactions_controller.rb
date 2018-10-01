@@ -17,9 +17,7 @@ end
 
 get '/transactions/selected_month' do
   @months =["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  @month_spend = Transaction.selected_month_spend(@selected_month)
   @total_budget = Tag.total_budget()
-  @month_transactions = Transaction.selected_month(@selected_month)
   @transactions = Transaction.all()
   erb(:"transactions/selected_month")
 end

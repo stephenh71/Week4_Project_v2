@@ -26,7 +26,7 @@ merchant3.save()
 
 tag1 = Tag.new({
   "title" => "petrol",
-  "budget" => 200
+  "budget" => 400
 })
 
 tag2 = Tag.new({
@@ -36,7 +36,7 @@ tag2 = Tag.new({
 
 tag3 = Tag.new({
   "title" => "insurance",
-  "budget" => 500
+  "budget" => 150
 })
 
 tag1.save()
@@ -51,23 +51,30 @@ transaction1 = Transaction.new({
 })
 
 transaction2 = Transaction.new({
-  "trans_date" => "2017-09-28",
+  "trans_date" => "2018-10-01",
   "merchant_id" => merchant2.id,
   "tag_id" => tag2.id,
   "amount" => 80
 })
 
 transaction3 = Transaction.new({
-  "trans_date" => "2019-09-27",
+  "trans_date" => "2019-10-01",
   "merchant_id" => merchant1.id,
   "tag_id" => tag2.id,
   "amount" => 50
 })
 
 transaction4 = Transaction.new({
-  "trans_date" => "2018-01-01",
+  "trans_date" => "2018-10-02",
   "merchant_id" => merchant2.id,
   "tag_id" => tag1.id,
+  "amount" => 100
+})
+
+transaction5 = Transaction.new({
+  "trans_date" => "2018-10-02",
+  "merchant_id" => merchant2.id,
+  "tag_id" => tag3.id,
   "amount" => 100
 })
 
@@ -75,6 +82,7 @@ transaction1.save()
 transaction2.save()
 transaction3.save()
 transaction4.save()
+transaction5.save()
 
 binding.pry
 nil

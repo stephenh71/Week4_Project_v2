@@ -2,25 +2,22 @@
 <html>
 <head>
   <title>Spending Tracker</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <main>
   <nav>
 
     <a href="/">Dashboard</a>
-    <a href="/transactions">Transactions</a>
     <a href="/transactions/current_month">Current Month Transactions</a>
-    <a href="/transactions/selected_month">Selected Month Transactions</a>
     <a href="/transactions/new">New Transaction</a>
-    <a href="/merchants">Merchants</a>
-    <a href="/merchants/new">New Merchant</a>
-    <a href="/tags">Tags</a>
-    <a href="/tags/new">New Tag</a>
 
-<br>
-<br>
-<br>
+  <a href="/transactions">Transactions</a>
+    <a href="/merchants">Merchants</a>
+    <a href="/tags">Tags</a>
+
+  <a href="/transactions/selected_month">Selected Month Transactions</a>
+
   </nav>
   <section id="content">
   <%= yield %>

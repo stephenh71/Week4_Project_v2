@@ -1,17 +1,24 @@
 body {
-  padding: 30px;
-  font-family: 'Rye', cursive;
-  color: #ccad00;
-  background-image: url("/harry_potter.gif");
+
 }
 
 a {
-  text-decoration: none;
-  color: red;
+
 }
 
 nav {
   display: flex;
   margin-right: 20px;
-  align-items: center;
+  align-items: left;
+}
+
+td{ font-family: Arial. sans-serif;
+ border-style: inset;
+
+
+}
+
+table{
+ border-style: ridge;
+
 }

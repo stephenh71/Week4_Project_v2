@@ -1,4 +1,4 @@
-<h1>Edit Tag</h1>
+<h1>Edit <%= @tag.title.capitalize %> Tag</h1>
 
 <div class="edit">
 <form method="post" action="/tags/<%= @tag.id %>">
@@ -18,6 +18,6 @@
   type='number'
   name='budget'/>
 
-  <input class="mybutton" type='submit' role="button" value='Update Tag'/>
+  <input class="update_button" type='submit' role="button" value='Update'/>
 
   </div>

@@ -94,16 +94,38 @@ def self.current_month_spend()
   return results[0].values[0].to_i
 end
 
-def self.selected_month(selected_month)
+# def self.transaction_total_for_tag(tag)
+#   total = 0
+#   for transaction in @transactions
+#     if transaction.tag.title == @tag.title
+#       total_transaction_amount =+ transaction.amount()
+#     end
+# end
+
+def self.selected_month()
   sql = "SELECT * FROM transactions WHERE date_part('month',trans_date) = selected_month ORDER BY trans_date DESC"
   results = SqlRunner.run(sql)
   return results.map {|result|Transaction.new(result)}
 end
+#
+# def self.selected_month_spend()
+# sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = selected_month"
+# results = SqlRunner.run(sql)
+# return results[0].values[0].to_i
+# end
 
-def self.selected_month_spend(selected_month)
-sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = selected_month"
-results = SqlRunner.run(sql)
-return results[0].values[0].to_i
-end
+# def self.merchant()
+#   sql = "SELECT * FROM transactions WHERE transaction.merchant_id = merchant_id ORDER BY trans_date DESC"
+#   results = SqlRunner.run(sql)
+#   return results.map {|result|Transaction.new(result)}
+# end
+#
+# def self.merchant_spend()
+# sql = "SELECT SUM (amount) from transactions WHERE transaction.merchant_id = merchant_id"
+# results = SqlRunner.run(sql)
+# return results[0].values[0].to_i
+# end
+
+
 
 end

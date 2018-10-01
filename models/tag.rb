@@ -22,6 +22,16 @@ class Tag
     @id = result[0]["id"].to_i
   end
 
+  # def merchant()
+  #   merchant = Merchant.find(@merchant_id)
+  #   return merchant
+  # end
+  #
+  # def transaction()
+  #   transaction = Transaction.find(@transaction_id)
+  #   return transaction
+  # end
+
   def update()
     sql = "UPDATE tags SET (
     title,
@@ -60,6 +70,5 @@ class Tag
     results = SqlRunner.run(sql)
     return results[0].values[0].to_i
   end
-
 
 end

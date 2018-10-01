@@ -1,11 +1,22 @@
-<h1>All Tags</h1>
+<h1>Tags - total month budget £<%= @total_budget %></h1>
 
-<p> Month Budget £<%= @total_budget %>
+<a class="new_button" href="/tags/new" role="button" >New</a>
 
-<% for tag in @tags %>
-<p>Title: <%= tag.title() %></p>
-<p>Budget: £<%= tag.budget() %></p>
+<br>
+<table class = "small_table" >
+  <tr>
+    <th>Tag</th>
+    <th>Budget</th>
+  </tr>
+  <tr>
 
-      <a class="mybutton" href="/tags/<%= tag.id %>" role="button" >View Tag</a>
+  <% for tag in @tags %>
+  <td><p><a href="/tags/<%= tag.id %>"><%= tag.title.capitalize() %></a></p></td>
+  <td><p>£<%= tag.budget() %></p></td>
 
-    <% end%>
+  <td><form method='get'action='/tags/<%= tag.id %>/edit'> <input class="edit_button" type='submit' value='Edit'/></form></td>
+
+  <td><form method='post' action='/tags/<%= tag.id %>/delete'><input class="delete_button" type='submit'role="button" value='Delete'/></form></td>
+
+  </tr>
+  <% end%>
