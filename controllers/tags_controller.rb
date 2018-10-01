@@ -18,7 +18,6 @@ get '/tags/:id' do
   @tag = Tag.find(params['id'])
   @transactions = Transaction.all
   @transaction = Transaction.find(params['id'])
-  @months =["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   erb ( :"tags/show" )
 end
 

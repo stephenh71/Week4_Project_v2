@@ -28,19 +28,3 @@
   </tr>
       <% end%>
     <% end%>
-
-<p>Total spend (all months) : £<%= @total_transaction_amount%></p>
-
-<form method="get" action="/transactions/selected_month">
-
-<select id="month-select" type="number" name="@selected_month"/>
-
-  <% for month in @months %>
-  <option value= "<%= @months.index(month)+1 %>" >  <%=month%> </option>
-   <% end %>
-</select>
-</label>
-
-<input type="submit" value="Select Month"/>
-
-</form>

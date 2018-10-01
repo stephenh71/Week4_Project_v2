@@ -12,6 +12,7 @@ get '/transactions/current_month' do
   @total_budget = Tag.total_budget()
   @month_transactions = Transaction.current_month()
   @transactions = Transaction.all()
+  @tags = Tag.all()
   erb(:"transactions/current_month")
 end
 

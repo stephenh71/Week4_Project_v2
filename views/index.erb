@@ -5,3 +5,26 @@
 <p> Month Budget £<%= @total_budget %></p>
 
 <p> Remaining Budget £<%= @remaining %></p>
+
+<table class = "barchart_table" >
+<tr>
+  <th>Tag</th>
+  <th>Month Spend</th>
+  <th>Month Budget</th>
+</tr>
+  <tr>
+
+<br>
+
+<% for tag in @tags %>
+  <td><p><%= tag.title.capitalize %></p></td>
+  <% total_transaction_amount = 0 %>
+  <% for transaction in @month_transactions %>
+    <% if transaction.tag.title == tag.title %>
+    <% total_transaction_amount += transaction.amount() %>
+      <% end%>
+  <% end%>
+  <td><p><%=  total_transaction_amount %></p></td>
+  <td><p><%=  tag.budget() %></p></td>
+</tr>
+<% end%>
