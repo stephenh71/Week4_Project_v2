@@ -1,9 +1,9 @@
 <div class="h1"><h1>Edit Transaction</h1></div>
 
-<div class="edit">
+<div class="h1_add">
 <form method="post" action="/transactions/<%= @transaction.id %>">
 
-  <label for='trans-date'><strong>Date:</strong></label>
+  <label for='trans-date'>Date:</label>
   <input
   id='trans-date'
   value='<%= @transaction.trans_date %>'
@@ -14,7 +14,7 @@
   <select name="merchant_id" id="merchant-select" selected="<%= @transaction.merchant_id  %>">
     <% for merchant in @merchants  %>
       <% if merchant.id == @transaction.merchant_id %>
-        <option value=<%= merchant.id %> selected><%= merchant.name.capitalize %></option>
+        <option value=<%= merchant.id %> selected><%= merchant.name %></option>
       <% else %>
         <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
       <% end %>
@@ -25,22 +25,21 @@
   <select name="tag_id" id="tag-select" selected="<%= @transaction.tag_id  %>">
     <% for tag in @tags %>
       <% if tag.id == @transaction.tag_id %>
-        <option value=<%= tag.id %> selected><%= tag.title.capitalize %></option>
+        <option value=<%= tag.id %> selected><%= tag.title %></option>
       <% else %>
-        <option value=<%= tag.id %>><%= tag.title.capitalize %></option>
+        <option value=<%= tag.id %>><%= tag.title %></option>
       <% end %>
     <% end %>
   </select>
 
-  <label for='amount'><strong>Amount:</strong></label>
+  <label for='amount'>Amount:</label>
   <input
   id='amount'
   value ='<%= @transaction.amount %>'
   type = 'number'
   name = 'amount'/>
 
-  <input class="mybutton" type='submit' role="button" value='Update Transaction'/>
-
+  <input value='Update Transaction'/ type='image' src=  "/add-button.png" height = "30" width = "30">
 </form>
 
 </div>

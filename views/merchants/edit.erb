@@ -1,15 +1,16 @@
 <div class="h1"><h1>Edit Merchant</h1></div>
 
-<div class="edit">
+<div class = "h1_add">
 <form method="post" action="/merchants/<%= @merchant.id %>">
 
-  <label for='merchant-name'><strong>Name:</strong></label>
+
+  <label for='merchant-name'>Name:</label>
   <input
   id='merchant-name'
   value='<%= @merchant.name %>'
   type='text'
   name='name'/>
 
-  <input class="mybutton" type='submit' role="button" value='Update Merchant'/>
+  <input value='Update Transaction'/ type='image' src=  "/add-button.png" height = "30" width = "30">
 
 </div>

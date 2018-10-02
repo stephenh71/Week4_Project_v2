@@ -94,11 +94,11 @@ class Transaction
     return results.map {|result|Transaction.new(result)}
   end
 
-def self.current_month_spend()
-  sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = date_part('month',CURRENT_DATE) AND date_part('year',trans_date) = date_part('year',CURRENT_DATE)"
-  results = SqlRunner.run(sql)
-  return results[0].values[0].to_i
-end
+  def self.current_month_spend()
+    sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = date_part('month',CURRENT_DATE) AND date_part('year',trans_date) = date_part('year',CURRENT_DATE)"
+    results = SqlRunner.run(sql)
+    return results[0].values[0].to_i
+  end
 
 # def self.transaction_total_for_tag(tag)
 #   total = 0
@@ -108,31 +108,31 @@ end
 #     end
 # end
 
-def self.selected_month(selected_month, selected_year)
-  sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM trans_date) = $1 AND EXTRACT(YEAR FROM trans_date) = $2 ORDER BY trans_date DESC"
+  def self.selected_month(selected_month, selected_year)
+    sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM trans_date) = $1 AND EXTRACT(YEAR FROM trans_date) = $2 ORDER BY trans_date DESC"
+    values = [selected_month, selected_year]
+    results = SqlRunner.run(sql, values)
+    return results.map {|result|Transaction.new(result)}
+  end
+
+  def self.selected_month_spend(selected_month, selected_year)
+  sql = "SELECT SUM (amount) from transactions WHERE EXTRACT(MONTH FROM trans_date) = $1 AND EXTRACT(YEAR FROM trans_date) = $2"
   values = [selected_month, selected_year]
   results = SqlRunner.run(sql, values)
-  return results.map {|result|Transaction.new(result)}
-end
+  return results[0].values[0].to_i
+  end
 
-def self.selected_month_spend(selected_month, selected_year)
-sql = "SELECT SUM (amount) from transactions WHERE EXTRACT(MONTH FROM trans_date) = $1 AND EXTRACT(YEAR FROM trans_date) = $2"
-values = [selected_month, selected_year]
-results = SqlRunner.run(sql, values)
-return results[0].values[0].to_i
-end
+  def self.merchant()
+    sql = "SELECT * FROM transactions WHERE transaction.merchant_id = merchant_id ORDER BY trans_date DESC"
+    results = SqlRunner.run(sql)
+    return results.map {|result|Transaction.new(result)}
+  end
 
-def self.merchant()
-  sql = "SELECT * FROM transactions WHERE transaction.merchant_id = merchant_id ORDER BY trans_date DESC"
+  def self.merchant_spend()
+  sql = "SELECT SUM (amount) from transactions WHERE transaction.merchant_id = merchant_id"
   results = SqlRunner.run(sql)
-  return results.map {|result|Transaction.new(result)}
-end
-
-def self.merchant_spend()
-sql = "SELECT SUM (amount) from transactions WHERE transaction.merchant_id = merchant_id"
-results = SqlRunner.run(sql)
-return results[0].values[0].to_i
-end
+  return results[0].values[0].to_i
+  end
 
 
 

@@ -11,7 +11,7 @@ body{
   }
 
 nav {
- background-color:#C5C5C5 ;
+ background-color:#a6a6a6;
  display: flex
     margin: 0;
     padding: 0px;
@@ -65,7 +65,29 @@ display: block;
 .dot {
     height: 150px;
     width: 150px;
-    background-color: #808080;
+    background-color:#808080;
+    border-radius: 70%;
+    border-width: 1px;
+    display: inline-block;
+    padding: 40px;
+    margin-left: 30px;
+}
+
+.dot_red {
+    height: 150px;
+    width: 150px;
+    background-color:#ff1a1a;
+    border-radius: 70%;
+    border-width: 1px;
+    display: inline-block;
+    padding: 40px;
+    margin-left: 30px;
+}
+
+.dot_green {
+    height: 150px;
+    width: 150px;
+    background-color:#008000;
     border-radius: 70%;
     border-width: 1px;
     display: inline-block;
@@ -119,31 +141,39 @@ h1, {
   color: #5d5d5d;
 }
 
+.table_container{
+  display:flex;
+  justify-content: center;
+
+}
+
 .transaction_table{
   width: 80%;
    border-style: ridge;
    margin-left: 90px;
+   justify-content:center;
    color: #5d5d5d;
 }
 
 .small_table{
   width: 50%;
    border-style: ridge;
-   margin-left: 220px;
+   justify-content:center;
    color: #5d5d5d;
 }
 
 th{
   height: 60px;
   background-color: #808080;
-  color: white
+  color: white;
+  justify-content:center;
 }
 
 td{
   font:18px 'Lucida; Grande',sans-serif;
- border-style: inset;
- text-align: center;
- color: #5d5d5d;
+   border-style: inset;
+   color: #808080;
+  text-align: center;
 }
 
 

@@ -1,23 +1,22 @@
-<div class="h1"><h1>Edit "<%= @tag.title.capitalize %>" Budget</h1>
+<div class="h1"><h1>Edit "<%= @tag.title %>" Budget</h1>
 </div>
-<div class="edit">
+<div class = "h1_add">
 <form method="post" action="/tags/<%= @tag.id %>">
 
-  <label for='tag-title'><strong>Category:</strong></label>
+  <label for='tag-title'>Category:</label>
   <input
   id='tag-title'
   value='<%= @tag.title %>'
   type='text'
   name='title'/>
 
-  <label
-  for='budget'><strong>Budget:</strong></label>
+  <label for='budget'>Budget:</label>
   <input
   id='budget'
   value='<%= @tag.budget %>'
   type='number'
   name='budget'/>
 
-  <input class="update_button" type='submit' role="button" value='Update'/>
+  <input value='Update Transaction'/ type='image' src=  "/add-button.png" height = "30" width = "30">
 
   </div>
