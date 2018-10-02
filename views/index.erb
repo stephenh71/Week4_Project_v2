@@ -31,7 +31,7 @@
   <% result = ((total_transaction_amount*100) / (tag.budget)).to_i %>
   <% top += 70 %>
 
-  <div class="bar" style="left: 20%;  top: <%= top %>px; height: 50px; width: <%= result%>% "><%= tag.title.capitalize %>  <%= result%>%</div>
+  <div class="bar" style="left: 20%;  top: <%= top %>px; height: 50px; width: <%= result%>% "><%= tag.title %>  <%= result%>%</div>
 <% end%>
 </div>
 

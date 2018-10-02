@@ -108,16 +108,17 @@ end
 #     end
 # end
 
-def self.selected_month()
-  sql = "SELECT * FROM transactions WHERE date_part('month',trans_date) = selected_month ORDER BY trans_date DESC"
-  results = SqlRunner.run(sql)
+def self.selected_month(selected_month, selected_year)
+  sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM trans_date) = $1 AND EXTRACT(YEAR FROM trans_date) = $2 ORDER BY trans_date DESC"
+  values = [selected_month, selected_year]
+  results = SqlRunner.run(sql, values)
   return results.map {|result|Transaction.new(result)}
 end
-#
-def self.selected_month_spend(selected_month)
-sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = $1"
-values = [selected_month]
-results = SqlRunner.run(sql)
+
+def self.selected_month_spend(selected_month, selected_year)
+sql = "SELECT SUM (amount) from transactions WHERE EXTRACT(MONTH FROM trans_date) = $1 AND EXTRACT(YEAR FROM trans_date) = $2"
+values = [selected_month, selected_year]
+results = SqlRunner.run(sql, values)
 return results[0].values[0].to_i
 end
 

@@ -1,33 +1,38 @@
-
-
-<form method="get" action="/transactions/selected_month">
-
-<select id="month-select" type="number" name="@selected_month"/>
-
-  <% for month in @months %>
-  <option value= "<%= @months.index(month)+1 %>" >  <%=month%> </option>
-   <% end %>
-</select>
-</label>
-
-<input type="submit" value="Select Month"/>
-
-</form>
-
-<h1>Transactions for <%=month%>
-
-<%=@current_month_name%></h1>
-
-<p>Month Spend £<%= @month_spend %></p>
+<div class="h1"><h1>Transactions for <%=@selected_month%> <%=@selected_year%> </h1>
+</div>
+<div class = "totals">
+<p>Month Spend £<%= @selected_month_spend %></p>
 
 <p> Month Budget £<%= @total_budget %></p>
+</div>
+<br>
+<form method="post" action="/transactions/selected_month">
+<label for="date"> Date : </label>
+<input id="date" type="month" name="date" type="submit">
+<input value="Add Merchant"/ type='image' src=  "/add-button.png" height = "20" width = "20">
+</form>
+<br>
+<table class = "transaction_table" >
+<br>
+<tr>
+  <th>Date</th>
+  <th>Merchant</th>
+  <th>Category</th>
+  <th>Amount</th>
+  <th></th>
+  <th></th>
+</tr>
+  <tr>
 
-<% for transaction in @month_transactions %>
-<p>Date: <%= transaction.trans_date %></p>
-<p>Merchant: <%= transaction.merchant.name() %></p>
-<p>Tag: <%= transaction.tag.title %></p>
-<p>Amount: £<%= transaction.amount() %></p>
+<% for transaction in @selected_month_transactions %>
+<td><p><%= transaction.trans_date %></p></td>
+<td><p><%= transaction.merchant.name() %></p></td>
+<td><p><%= transaction.tag.title %></p></td>
+<td><p>£<%= transaction.amount()%></p></td>
 
-      <a  href="/transactions/<%= transaction.id %>" role="button" >View Transaction</a>
+    <td><form method='get' action='/transactions/<%= transaction.id %>/edit'><input value='Edit'/ type='image' src="/edit-button.png" height ="20" width ="20"></form></td>
 
-<% end%>
+    <td><form method='post' action='/transactions/<%= transaction.id %>/delete'><input value='Delete'/ type='image' src="/delete-button.png" height="20" width="20"></form></td>
+
+    </tr>
+  <% end%>

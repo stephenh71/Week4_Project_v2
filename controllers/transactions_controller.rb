@@ -16,10 +16,14 @@ get '/transactions/current_month' do
   erb(:"transactions/current_month")
 end
 
-get '/transactions/selected_month' do
-  @months =["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+post '/transactions/selected_month' do
+  @date =Date.strptime(params["date"],"%Y-%m")
+  @selected_month = @date.month
+  @selected_year = @date.year
+  @selected_month_transactions = Transaction.selected_month(@selected_month,@selected_year)
   @total_budget = Tag.total_budget()
   @transactions = Transaction.all()
+  @selected_month_spend = Transaction.selected_month_spend(@selected_month,@selected_year)
   erb(:"transactions/selected_month")
 end
 
