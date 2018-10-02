@@ -11,7 +11,7 @@ class Transaction
     @trans_date = options['trans_date']
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
-    @amount = options['amount'].to_i
+    @amount = options['amount'].to_f
   end
 
   def save()
@@ -72,6 +72,12 @@ class Transaction
     return Transaction.new(results[0])
   end
 
+  def self.last_transaction
+    sql = "SELECT *, MAX(trans_date) FROM transactions"
+    results = SqlRunner.run(sql)
+    return results.map {|result|Transaction.new(result)}
+  end
+
   def self.total_spend()
     sql = "SELECT SUM (amount) from transactions"
     results = SqlRunner.run(sql)
@@ -108,23 +114,24 @@ def self.selected_month()
   return results.map {|result|Transaction.new(result)}
 end
 #
-# def self.selected_month_spend()
-# sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = selected_month"
-# results = SqlRunner.run(sql)
-# return results[0].values[0].to_i
-# end
+def self.selected_month_spend(selected_month)
+sql = "SELECT SUM (amount) from transactions WHERE date_part('month',trans_date) = $1"
+values = [selected_month]
+results = SqlRunner.run(sql)
+return results[0].values[0].to_i
+end
 
-# def self.merchant()
-#   sql = "SELECT * FROM transactions WHERE transaction.merchant_id = merchant_id ORDER BY trans_date DESC"
-#   results = SqlRunner.run(sql)
-#   return results.map {|result|Transaction.new(result)}
-# end
-#
-# def self.merchant_spend()
-# sql = "SELECT SUM (amount) from transactions WHERE transaction.merchant_id = merchant_id"
-# results = SqlRunner.run(sql)
-# return results[0].values[0].to_i
-# end
+def self.merchant()
+  sql = "SELECT * FROM transactions WHERE transaction.merchant_id = merchant_id ORDER BY trans_date DESC"
+  results = SqlRunner.run(sql)
+  return results.map {|result|Transaction.new(result)}
+end
+
+def self.merchant_spend()
+sql = "SELECT SUM (amount) from transactions WHERE transaction.merchant_id = merchant_id"
+results = SqlRunner.run(sql)
+return results[0].values[0].to_i
+end
 
 
 

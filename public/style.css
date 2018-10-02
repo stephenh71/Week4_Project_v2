@@ -1,24 +1,171 @@
-body {
-
+# pic{
+  width: 10px;
+  height: 15px;
 }
 
-a {
+body{
+  font:18px 'Lucida Grande',sans-serif;
+  background-color:white;
+  margin: 25px;
 
-}
+  }
 
 nav {
+ background-color:#C5C5C5 ;
+ display: flex
+    margin: 0;
+    padding: 0px;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font:16px/1.3 'Lucida Grande',sans-serif;
+    border-radius: 10px;
+}
+
+nav ul{
   display: flex;
-  margin-right: 20px;
-  align-items: left;
+  justify-content: space-around;
+  padding-left: 0;
 }
 
-td{ font-family: Arial. sans-serif;
+.navbar li{
+ text-transform: uppercase;
+ display:inline-flex;
+ font-weight:bold;
+}
+
+li a{
+  text-decoration: none;
+  padding: 20px;
+}
+
+.navbar a{
+display: block;
+ text-decoration: none;
+ color:white;
+}
+
+.navbar li:hover{
+ background-color: #82B5DE;
+ border-radius: 25px;
+}
+
+.CTA {
+   background-color:#ff1a1a;
+   border-radius: 25px;
+}
+
+.circle_container{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.dot {
+    height: 150px;
+    width: 150px;
+    background-color: #808080;
+    border-radius: 70%;
+    border-width: 1px;
+    display: inline-block;
+    padding: 40px;
+    margin-left: 30px;
+}
+
+ .circles {
+ display: flex;
+ padding-left: 30px;
+ padding-top: 15px;
+ font-size: 25px;
+ color: white
+}
+
+.h1{
+  display : flex;
+  justify-content: space-around;
+  color: #5d5d5d;
+}
+
+.h1_add {
+  display : flex;
+  justify-content:center;
+  color: #5d5d5d;
+}
+
+.h1_add2 {
+  display : flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #5d5d5d;
+}
+
+# trans-date{
+  display : flex;
+  justify-content:center;
+  width: 20%
+}
+
+
+h1, {
+  display : flex;
+  justify-content:
+  color: #5d5d5d;
+}
+
+.totals{
+  display : flex;
+  justify-content: space-around;
+  color: #5d5d5d;
+}
+
+.transaction_table{
+  width: 80%;
+   border-style: ridge;
+   margin-left: 90px;
+   color: #5d5d5d;
+}
+
+.small_table{
+  width: 50%;
+   border-style: ridge;
+   margin-left: 220px;
+   color: #5d5d5d;
+}
+
+th{
+  height: 60px;
+  background-color: #808080;
+  color: white
+}
+
+td{
+  font:18px 'Lucida; Grande',sans-serif;
  border-style: inset;
-
-
+ text-align: center;
+ color: #5d5d5d;
 }
 
-table{
- border-style: ridge;
 
+.graph {
+    margin-left: 120;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin-bottom: 100px;
+    color: white;
+}
+
+.bar {
+    position: absolute;
+    border: 1px solid #666;
+    background-color: #6281d6;
+    color: white;
+    border-radius: 5px 20px 20px 5px;
+    text-align: center;
+}
+
+.graph-align {
+  display: flex;
+  justify-content: center;
 }

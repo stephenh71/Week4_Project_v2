@@ -6,18 +6,17 @@
 </head>
 <body>
 <main>
-  <nav>
-
-    <a href="/">Dashboard</a>
-    <a href="/transactions/current_month">Current Month Transactions</a>
-    <a href="/transactions/new">New Transaction</a>
-
-  <a href="/transactions">Transactions</a>
-    <a href="/merchants">Merchants</a>
-    <a href="/tags">Tags</a>
-
-  <a href="/transactions/selected_month">Selected Month Transactions</a>
-
+<img id = "pic" src=  "SpendiesLogoTwo.png" height = "150" width = "600"/>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/transactions/current_month">This Month</a></li>
+      <li><a href="/tags">Budget</a></li>
+      <li><a href="/transactions">Transactions</a></li>
+      <li><a href="/merchants">Merchants</a></li>
+      <li class = "CTA"><a href="/transactions/new">Add Spend</a></li>
+      <!-- <li><a href="/transactions/selected_month">Selected Month Transactions</a></ul> -->
+    </ul>
   </nav>
   <section id="content">
   <%= yield %>

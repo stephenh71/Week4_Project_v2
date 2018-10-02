@@ -3,9 +3,6 @@ require_relative('../models/merchant')
 require_relative('../models/tag')
 require_relative('../models/transaction')
 
-Transaction.delete_all
-Merchant.delete_all()
-Tag.delete_all()
 
 
 merchant1 = Merchant.new({
@@ -52,12 +49,12 @@ merchant8.save()
 
 tag1 = Tag.new({
   "title" => "Petrol",
-  "budget" => 400
+  "budget" => 600
 })
 
 tag2 = Tag.new({
   "title" => "Shopping",
-  "budget" => 600
+  "budget" => 750
 })
 
 tag3 = Tag.new({
@@ -67,12 +64,12 @@ tag3 = Tag.new({
 
 tag4 = Tag.new({
   "title" => "Sports",
-  "budget" => 100
+  "budget" => 250
 })
 
 tag5 = Tag.new({
-  "title" => "Going out",
-  "budget" => 200
+  "title" => "Going Out",
+  "budget" => 300
 })
 
 tag6 = Tag.new({
@@ -102,7 +99,7 @@ transaction2 = Transaction.new({
 })
 
 transaction3 = Transaction.new({
-  "trans_date" => "2019-10-01",
+  "trans_date" => "2018-10-01",
   "merchant_id" => merchant1.id,
   "tag_id" => tag1.id,
   "amount" => 103.78
@@ -139,7 +136,7 @@ transaction8 = Transaction.new({
   "trans_date" => "2018-10-03",
   "merchant_id" => merchant7.id,
   "tag_id" => tag6.id,
-  "amount" =>75.00
+  "amount" =>40.99
 })
 
 transaction9 = Transaction.new({
@@ -189,6 +186,28 @@ transaction15 = Transaction.new({
   "tag_id" => tag1.id,
   "amount" =>41.99
 })
+
+transaction16 = Transaction.new({
+  "trans_date" => "2018-10-03",
+  "merchant_id" => merchant1.id,
+  "tag_id" => tag1.id,
+  "amount" =>105.43
+})
+
+transaction17 = Transaction.new({
+  "trans_date" => "2018-10-03",
+  "merchant_id" => merchant6.id,
+  "tag_id" => tag4.id,
+  "amount" =>60.52
+})
+
+transaction18 = Transaction.new({
+  "trans_date" => "2018-10-03",
+  "merchant_id" => merchant3.id,
+  "tag_id" => tag2.id,
+  "amount" =>198.37
+})
+
 transaction1.save()
 transaction2.save()
 transaction3.save()
@@ -204,6 +223,8 @@ transaction12.save()
 transaction13.save()
 transaction14.save()
 transaction15.save()
-
+transaction16.save()
+transaction17.save()
+transaction18.save()
 binding.pry
 nil

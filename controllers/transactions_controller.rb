@@ -54,6 +54,7 @@ post '/transactions' do
   @transaction = Transaction.new(params)
   @revised_spend = @total_spend + @transaction.amount
   @now_remaining = @total_budget - @revised_spend
+  @current_month_name = Date::MONTHNAMES[Date.today.month]
   @transaction.save()
   erb (:"transactions/create")
 end

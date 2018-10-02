@@ -1,21 +1,21 @@
-<h1>Merchants</h1>
-
-<a class="new_button" href="/merchants/new" role="button" >New</a>
+<div class="h1_add"><h1>Merchants</h1><img href="/Merchants/new" src=  "add-button.png" height = "30" width = "30" ></div>
 
 <br>
 <table class = "small_table" >
   <tr>
     <th>Name</th>
+    <th></th>
+    <th></th>
   </tr>
   <tr>
 
 
   <% for merchant in @merchants %>
-  <td><p><a href="/merchants/<%= merchant.id %>"><%= merchant.name.capitalize() %></a></p></td>
+  <td><p><a href="/merchants/<%= merchant.id %>"><%= merchant.name() %></a></p></td>
 
-  <td><form method='get' action='/merchants/<%= merchant.id %>/edit'> <input class="edit_button" type='submit' value='Edit'/></form></td>
+  <td><form method='get' action='/merchants/<%= merchant.id %>/edit'><input value='Edit'/ type='image' src=  "edit-button.png" height = "20" width = "20"></form></td>
 
-  <td><form method='post' action='/merchants/<%= merchant.id %>/delete'> <input class="delete_button" type='submit'role="button" value='Delete'/></form></td>
+  <td><form method='post' action='/merchants/<%= merchant.id %>/delete'><input value='Delete'/ type='image' src=  "delete-button.png" height = "20" width = "20"></form></td>
 
   </tr>
   <% end%>

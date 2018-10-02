@@ -1,9 +1,9 @@
-<h1>Edit <%= @tag.title.capitalize %> Tag</h1>
-
+<div class="h1"><h1>Edit "<%= @tag.title.capitalize %>" Budget</h1>
+</div>
 <div class="edit">
 <form method="post" action="/tags/<%= @tag.id %>">
 
-  <label for='tag-title'><strong>Title:</strong></label>
+  <label for='tag-title'><strong>Category:</strong></label>
   <input
   id='tag-title'
   value='<%= @tag.title %>'

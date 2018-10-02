@@ -1,8 +1,11 @@
 <form method="post" action="/transactions">
-
-
- <label for="trans-date"> Date :</label>
- <input id="trans-date" type="date" name="trans_date"/>
+  <br>
+  <h1 class = "h1"> Add New Transaction</h1>
+  <br>
+  <br>
+<div class = "h1_add2">
+ <label for="trans-date"> Date : </label>
+ <input id="trans-date" type="date" name="trans_date"/ >
 
  <label for="merchant-select">Select a merchant :
  <select id="merchant-select" name="merchant_id">
@@ -21,8 +24,8 @@
  </label>
 
  <label for="amount">Amount : £</label>
- <input id="amount" type="number" name="amount"/>
+ <input id="amount" type="float" name="amount"/>
 
-<input type="submit" value="Add Transaction"/>
-
+<input value="Add Transaction"/ type='image' src=  "add-button.png" height = "20" width = "20">
+</div>
 </form>

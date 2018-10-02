@@ -19,5 +19,5 @@ CREATE TABLE transactions(
   merchant_id INT REFERENCES
   merchants(id) ON DELETE CASCADE,
   tag_id INT REFERENCES tags(id) ON DELETE CASCADE,
-  amount INT4
+  amount DECIMAL(9,2)
 );

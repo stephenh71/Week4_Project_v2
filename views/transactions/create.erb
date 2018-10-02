@@ -1,6 +1,7 @@
-<h1>Spend of £<%=@transaction.amount%> at <%=@transaction.merchant.name%> successfully added!</h1>
-
-
-
-
-<p>Total month spend is £<%=@revised_spend%> and total budget is £<%= @total_budget%> (£<%=@now_remaining%> remaining).</p>
+<br>
+<br>
+<h1 class = "h1">Spend of £<%=@transaction.amount%> at <%=@transaction.merchant.name%> successfully added!</h1>
+<br>
+<br>
+<br>
+<div class = "h1_add">Total spend in <%=@current_month_name%> is now £<%=@revised_spend%>.  That leaves £<%=@now_remaining%> remaining of the total month budget of £<%= @total_budget%>.</div>
