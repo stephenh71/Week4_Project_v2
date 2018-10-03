@@ -10,8 +10,7 @@
   <th>Merchant</th>
   <th>Tag</th>
   <th>Amount</th>
-  <th></th>
-  <th></th>
+
 </tr>
   <tr>
     <% @total_transaction_amount = 0 %>
@@ -23,9 +22,7 @@
         <td><p>£ <%= transaction.amount() %></p></td>
         <% @total_transaction_amount += transaction.amount() %>
 
-        <td><form method='get' action='/transactions/<%= @transaction.id %>/edit'><input value='Edit'/ type='image' src=  "/edit-button.png" height = "20" width = "20"></form></td>
 
-        <td><form method='post' action='/transactions/<%= @transaction.id %>/delete'><input value='Delete'/ type='image' src=  "/delete-button.png" height = "20" width = "20"></form></td>
 
   </tr>
       <% end%>

@@ -70,7 +70,7 @@ display: block;
     border-width: 1px;
     display: inline-block;
     padding: 40px;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .dot_red {
@@ -97,7 +97,7 @@ display: block;
 
  .circles {
  display: flex;
- padding-left: 30px;
+ padding-left: 20px;
  padding-top: 15px;
  font-size: 25px;
  color: white
@@ -122,17 +122,27 @@ display: block;
   color: #5d5d5d;
 }
 
+.h1_add3 {
+
+
+  color: #5d5d5d;
+}
+
 # trans-date{
   display : flex;
   justify-content:center;
   width: 20%
 }
 
-
 h1, {
   display : flex;
   justify-content:
   color: #5d5d5d;
+}
+
+.container1{
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .totals{
@@ -141,6 +151,10 @@ h1, {
   color: #5d5d5d;
 }
 
+.filter{
+  color: #5d5d5d;
+
+}
 .table_container{
   display:flex;
   justify-content: center;
@@ -148,9 +162,8 @@ h1, {
 }
 
 .transaction_table{
-  width: 80%;
+  width: 100%;
    border-style: ridge;
-   margin-left: 90px;
    justify-content:center;
    color: #5d5d5d;
 }
@@ -182,7 +195,7 @@ td{
     position: relative;
     width: 50%;
     height: 50%;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
     color: white;
 }
 
